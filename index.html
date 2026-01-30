@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Enfield - Official Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET & BASIC STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .nav-links li a:hover {
+            opacity: 1;
+            color: #d32f2f;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+        
+        .nav-icons a {
+            color: white;
+        }
+
+        /* --- HERO SECTION WITH BLURRED BACKGROUND --- */
+        .hero {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Pseudo-element for the blurred image */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Your custom background image */
+            background: url('tbbg.jpg') no-repeat center center/cover;
+            filter: blur(5px);
+            transform: scale(1.1);
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            text-align: center;
+            z-index: 3;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+        }
+
+        /* BUTTON STYLES (NOW LINKS) */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #d32f2f;
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            font-size: 14px;
+            transition: background 0.3s;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #b71c1c;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: black;
+        }
+
+        /* --- MOTORCYCLES SECTION --- */
+        .section {
+            padding: 80px 50px;
+            background-color: #111;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .bike-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .bike-card {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            cursor: pointer;
+            display: block;
+        }
+
+        .bike-card:hover {
+            transform: translateY(-10px);
+            background-color: #222;
+        }
+
+        .bike-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .bike-name {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .bike-link {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 2px solid #d32f2f;
+            padding-bottom: 2px;
+            display: inline-block;
+        }
+
+        /* --- IN THE HEADLIGHTS (News) --- */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .news-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .news-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, black);
+        }
+
+        .news-title {
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #000;
+            padding: 60px 50px;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #888;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 36px; }
+            .news-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Royal Enfield</div>
+        <ul class="nav-links">
+            <li><a href="budget.html">Motorcycles</a></li>
+            <li><a href="budget.html">Service</a></li>
+            <li><a href="budget.html">Rides</a></li>
+            <li><a href="budget.html">Apparel</a></li>
+            <li><a href="budget.html">Accessories</a></li>
+            <li><a href="budget.html">Our World</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="budget.html">Login</a>
+            <a href="budget.html">Search</a>
+            <a href="budget.html">IN</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Pure Motorcycling</h1>
+            <p>Experience the Thunderbird 350. Built for all roads, built for no roads.</p>
+            <a href="budget.html" class="btn">Explore</a>
+            <a href="budget.html" class="btn btn-outline">Test Ride</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <div class="section-title">Motorcycles</div>
+            <a href="budget.html" style="font-size: 14px; font-weight: 600;">View all Motorcycles &rarr;</a>
+        </div>
+
+        <div class="bike-grid">
+            
+            <div class="bike-card">
+                <img src="thunderbird.jpg.jpeg" alt="Thunderbird 350">
+                <div class="bike-name">Thunderbird 350</div>
+                <a href="budget.html" class="bike-link">Explore</a>
+            </div>
+
+            <div class="bike-card">
+                <img src="meteor650.jpg" alt="Super Meteor 650">
+                <div class="bike-name">Super Meteor 650</div>
+                <a href="budget.html" class="bike-link">Explore</a>
+            </div>
+
+            <div class="bike-card">
+                <img src="classic350.jpg" alt="Classic 350">
+                <div class="bike-name">Classic 350</div>
+                <a href="budget.html" class="bike-link">Explore</a>
+            </div>
+
+            <div class="bike-card">
+                <img src="himalayan450.jpg" alt="Himalayan">
+                <div class="bike-name">Himalayan 450</div>
+                <a href="budget.html" class="bike-link">Explore</a>
+            </div>
+
+            <div class="bike-card">
+                <img src="gt650.jpg" alt="Continental GT">
+                <div class="bike-name">Continental GT 650</div>
+                <a href="budget.html" class="bike-link">Explore</a>
+            </div>
+
+             <div class="bike-card">
+                <img src="interceptor650.jpg" alt="Interceptor 650">
+                <div class="bike-name">Interceptor 650</div>
+                <a href="budget.html" class="bike-link">Explore</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <div class="section-title">In The Headlights</div>
+        </div>
+        <div class="news-grid">
+            
+            <div class="news-card">
+                <img src="moto.jpeg" alt="Motoverse">
+                <div class="news-overlay">
+                    <div class="news-title">Motoverse 2024</div>
+                    <a href="budget.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="art.jpg.png" alt="Art of Motorcycling">
+                <div class="news-overlay">
+                    <div class="news-title">Art of Motorcycling</div>
+                    <a href="budget.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Explore</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="hima.jpg.png" alt="Himalayan Odyssey">
+                <div class="news-overlay">
+                    <div class="news-title">Himalayan Odyssey</div>
+                    <a href="budget.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Register</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Motorcycles</h4>
+                <ul>
+                    <li><a href="budget.html">Himalayan</a></li>
+                    <li><a href="budget.html">Thunderbird 350</a></li>
+                    <li><a href="budget.html">Super Meteor 650</a></li>
+                    <li><a href="budget.html">Interceptor 650</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Rides</h4>
+                <ul>
+                    <li><a href="budget.html">Rides & Events</a></li>
+                    <li><a href="budget.html">Rentals</a></li>
+                    <li><a href="budget.html">Tours</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="budget.html">Service Centres</a></li>
+                    <li><a href="budget.html">Owner's Manual</a></li>
+                    <li><a href="budget.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="budget.html">Since 1901</a></li>
+                    <li><a href="budget.html">About Eicher Motors</a></li>
+                    <li><a href="budget.html">Investors</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 Royal Enfield. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
