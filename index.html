@@ -18,6 +18,51 @@
             background-color: #111;
             color: white;
             overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.light-theme {
+            background-color: #f5f5f5;
+            color: #111;
+        }
+
+        body.light-theme .section {
+            background-color: #fff;
+        }
+
+        body.light-theme nav,
+        body.light-theme footer {
+            background-color: #fff;
+            color: #111;
+        }
+
+        body.light-theme .bike-card {
+            background-color: #f9f9f9;
+        }
+
+        body.light-theme .bike-card:hover {
+            background-color: #efefef;
+        }
+
+        body.light-theme a {
+            color: #111;
+        }
+
+        body.light-theme .nav-links li a {
+            color: #111;
+        }
+
+        body.light-theme .modal-content {
+            background-color: #fff;
+            color: #111;
+        }
+
+        body.light-theme .form-group input,
+        body.light-theme .form-group textarea,
+        body.light-theme .form-group select {
+            background-color: #f9f9f9;
+            color: #111;
+            border-color: #ddd;
         }
 
         a {
@@ -31,6 +76,38 @@
             list-style: none;
         }
 
+        /* --- THEME TOGGLE & VISIT COUNTER --- */
+        .theme-toggle {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background-color: rgba(211, 47, 47, 0.9);
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 999;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background-color: rgba(183, 28, 28, 0.9);
+        }
+
+        .visit-counter {
+            position: fixed;
+            top: 130px;
+            right: 20px;
+            background-color: rgba(211, 47, 47, 0.9);
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 999;
+            font-weight: 600;
+        }
+
         /* --- NAVIGATION BAR --- */
         nav {
             display: flex;
@@ -42,6 +119,10 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #333;
+        }
+
+        body.light-theme nav {
+            border-bottom: 1px solid #ddd;
         }
 
         .logo {
@@ -77,6 +158,11 @@
         
         .nav-icons a {
             color: white;
+            cursor: pointer;
+        }
+
+        body.light-theme .nav-icons a {
+            color: #111;
         }
 
         /* --- HERO SECTION WITH BLURRED BACKGROUND --- */
@@ -90,7 +176,6 @@
             overflow: hidden;
         }
 
-        /* Pseudo-element for the blurred image */
         .hero::before {
             content: "";
             position: absolute;
@@ -98,7 +183,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Your custom background image */
             background: url('tbbg.jpg') no-repeat center center/cover;
             filter: blur(5px);
             transform: scale(1.1);
@@ -113,6 +197,11 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
             z-index: 2;
+        }
+
+        /* Light theme - darker overlay for better text visibility */
+        body.light-theme .hero-overlay {
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .hero-content {
@@ -131,6 +220,13 @@
             letter-spacing: 2px;
             line-height: 1.1;
             text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            color: white;
+        }
+
+        /* Ensure hero text is always white and visible */
+        body.light-theme .hero-content h1 {
+            color: white;
+            text-shadow: 3px 3px 15px rgba(0,0,0,0.9);
         }
 
         .hero-content p {
@@ -138,9 +234,15 @@
             margin-bottom: 30px;
             font-weight: 600;
             text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            color: white;
         }
 
-        /* BUTTON STYLES (NOW LINKS) */
+        body.light-theme .hero-content p {
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9);
+        }
+
+        /* BUTTON STYLES */
         .btn {
             display: inline-block;
             padding: 15px 40px;
@@ -164,6 +266,7 @@
         .btn-outline {
             background: transparent;
             border: 2px solid white;
+            color: white;
         }
 
         .btn-outline:hover {
@@ -184,6 +287,10 @@
             margin-bottom: 50px;
             border-bottom: 1px solid #333;
             padding-bottom: 20px;
+        }
+
+        body.light-theme .section-header {
+            border-bottom: 1px solid #ddd;
         }
 
         .section-title {
@@ -235,6 +342,74 @@
             display: inline-block;
         }
 
+        /* --- IMAGE GALLERY SECTION --- */
+        .gallery-section {
+            padding: 80px 50px;
+            background-color: #0a0a0a;
+        }
+
+        body.light-theme .gallery-section {
+            background-color: #f0f0f0;
+        }
+
+        .gallery-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .gallery-image {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 3px solid #d32f2f;
+            margin-bottom: 20px;
+        }
+
+        .gallery-controls {
+            margin: 20px 0;
+        }
+
+        .gallery-controls button {
+            margin: 0 10px;
+        }
+
+        .gallery-indicators {
+            margin-top: 20px;
+        }
+
+        .indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #555;
+            margin: 0 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .indicator.active {
+            background-color: #d32f2f;
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Gallery bike name display */
+        .gallery-bike-name {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 15px;
+            color: #d32f2f;
+            letter-spacing: 1px;
+        }
+
         /* --- IN THE HEADLIGHTS (News) --- */
         .news-grid {
             display: grid;
@@ -246,6 +421,7 @@
             position: relative;
             height: 400px;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .news-card img {
@@ -273,6 +449,130 @@
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 10px;
+            color: white;
+        }
+
+        /* --- MODAL STYLES --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: slideIn 0.3s ease;
+            margin: 20px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 35px;
+            cursor: pointer;
+            color: #888;
+            font-weight: normal;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: #d32f2f;
+        }
+
+        .modal-content h2 {
+            font-size: 28px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            color: #d32f2f;
+            padding-right: 30px;
+        }
+
+        /* --- FORM STYLES --- */
+        .form-group {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d32f2f;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .success-message {
+            background-color: rgba(76, 175, 80, 0.2);
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
         }
 
         /* --- FOOTER --- */
@@ -281,6 +581,10 @@
             padding: 60px 50px;
             border-top: 1px solid #333;
             margin-top: 50px;
+        }
+
+        body.light-theme footer {
+            border-top: 1px solid #ddd;
         }
 
         .footer-content {
@@ -306,8 +610,12 @@
             font-size: 14px;
         }
 
+        body.light-theme .footer-col ul li a {
+            color: #666;
+        }
+
         .footer-col ul li a:hover {
-            color: white;
+            color: #d32f2f;
         }
 
         .copyright {
@@ -319,15 +627,44 @@
             padding-top: 20px;
         }
 
+        body.light-theme .copyright {
+            border-top: 1px solid #ddd;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero-content h1 { font-size: 36px; }
             .news-grid { grid-template-columns: 1fr; }
+            .gallery-image { height: 300px; }
+            .theme-toggle, .visit-counter {
+                right: 10px;
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+            nav {
+                padding: 15px 20px;
+            }
+            .section {
+                padding: 50px 20px;
+            }
+            .modal-content {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        🌓 Theme
+    </div>
+
+    <!-- Visit Counter -->
+    <div class="visit-counter">
+        Visits: <span id="visitCount">0</span>
+    </div>
 
     <nav>
         <div class="logo">Royal Enfield</div>
@@ -340,8 +677,8 @@
             <li><a href="budget.html">Our World</a></li>
         </ul>
         <div class="nav-icons">
-            <a href="budget.html">Login</a>
-            <a href="budget.html">Search</a>
+            <a onclick="openModal('loginModal')">Login</a>
+            <a onclick="openModal('searchModal')">Search</a>
             <a href="budget.html">IN</a>
         </div>
     </nav>
@@ -350,9 +687,9 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Pure Motorcycling</h1>
-            <p>Experience the Thunderbird 350. Built for all roads, built for no roads.</p>
+            <p>Experience the Thunderbird 350. Built for all Chad,only chad can handle the vibration.</p>
             <a href="budget.html" class="btn">Explore</a>
-            <a href="budget.html" class="btn btn-outline">Test Ride</a>
+            <a onclick="openModal('testRideModal')" class="btn btn-outline">Book Test Ride</a>
         </div>
     </section>
 
@@ -403,6 +740,22 @@
         </div>
     </section>
 
+    <!-- IMAGE GALLERY SECTION - ROYAL ENFIELD BIKES ONLY -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <div class="section-title">Gallery</div>
+        </div>
+        <div class="gallery-container">
+            <img id="galleryImage" class="gallery-image" src="thunderbird.jpg.jpeg" alt="Royal Enfield">
+            <div class="gallery-bike-name" id="galleryBikeName">Thunderbird 350</div>
+            <div class="gallery-controls">
+                <button class="btn btn-outline" onclick="previousImage()">← Previous</button>
+                <button class="btn btn-outline" onclick="nextImage()">Next →</button>
+            </div>
+            <div class="gallery-indicators" id="indicators"></div>
+        </div>
+    </section>
+
     <section class="section">
         <div class="section-header">
             <div class="section-title">In The Headlights</div>
@@ -413,7 +766,7 @@
                 <img src="moto.jpeg" alt="Motoverse">
                 <div class="news-overlay">
                     <div class="news-title">Motoverse 2024</div>
-                    <a href="budget.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Read More</a>
+                    <a onclick="showNewsAlert('Motoverse 2024')" class="btn" style="padding: 10px 20px; font-size: 12px;">Read More</a>
                 </div>
             </div>
 
@@ -421,7 +774,7 @@
                 <img src="art.jpg.png" alt="Art of Motorcycling">
                 <div class="news-overlay">
                     <div class="news-title">Art of Motorcycling</div>
-                    <a href="budget.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Explore</a>
+                    <a onclick="showNewsAlert('Art of Motorcycling')" class="btn" style="padding: 10px 20px; font-size: 12px;">Explore</a>
                 </div>
             </div>
 
@@ -429,12 +782,134 @@
                 <img src="hima.jpg.png" alt="Himalayan Odyssey">
                 <div class="news-overlay">
                     <div class="news-title">Himalayan Odyssey</div>
-                    <a href="budget.html" class="btn" style="padding: 10px 20px; font-size: 12px;">Register</a>
+                    <a onclick="openModal('registerModal')" class="btn" style="padding: 10px 20px; font-size: 12px;">Register</a>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <!-- LOGIN MODAL -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return validateLoginForm(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email *</label>
+                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email">
+                    <div class="error-message" id="loginEmailError">Please enter a valid email</div>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password *</label>
+                    <input type="password" id="loginPassword" name="password" placeholder="Enter your password">
+                    <div class="error-message" id="loginPasswordError">Password is required</div>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SEARCH MODAL -->
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('searchModal')">&times;</span>
+            <h2>Search Motorcycles</h2>
+            <form id="searchForm" onsubmit="return validateSearchForm(event)">
+                <div class="form-group">
+                    <label for="searchQuery">Search *</label>
+                    <input type="text" id="searchQuery" name="query" placeholder="Enter motorcycle name or model">
+                    <div class="error-message" id="searchQueryError">Please enter a search term</div>
+                </div>
+                <div class="form-group">
+                    <label for="searchCategory">Category</label>
+                    <select id="searchCategory" name="category">
+                        <option value="">All Categories</option>
+                        <option value="classic">Classic</option>
+                        <option value="cruiser">Cruiser</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="sport">Sport</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- TEST RIDE MODAL -->
+    <div id="testRideModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('testRideModal')">&times;</span>
+            <h2>Book Test Ride</h2>
+            <form id="testRideForm" onsubmit="return validateTestRideForm(event)">
+                <div class="form-group">
+                    <label for="rideName">Full Name *</label>
+                    <input type="text" id="rideName" name="name" placeholder="Enter your name">
+                    <div class="error-message" id="rideNameError">Name is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="rideEmail">Email *</label>
+                    <input type="email" id="rideEmail" name="email" placeholder="Enter your email">
+                    <div class="error-message" id="rideEmailError">Please enter a valid email</div>
+                </div>
+                <div class="form-group">
+                    <label for="ridePhone">Phone Number *</label>
+                    <input type="tel" id="ridePhone" name="phone" placeholder="Enter your phone number">
+                    <div class="error-message" id="ridePhoneError">Phone number is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="rideBike">Select Motorcycle *</label>
+                    <select id="rideBike" name="bike">
+                        <option value="">Choose a motorcycle</option>
+                        <option value="thunderbird350">Thunderbird 350</option>
+                        <option value="meteor650">Super Meteor 650</option>
+                        <option value="classic350">Classic 350</option>
+                        <option value="himalayan450">Himalayan 450</option>
+                        <option value="gt650">Continental GT 650</option>
+                        <option value="interceptor650">Interceptor 650</option>
+                    </select>
+                    <div class="error-message" id="rideBikeError">Please select a motorcycle</div>
+                </div>
+                <button type="submit" class="btn">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- REGISTER MODAL (Himalayan Odyssey) -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Register for Himalayan Odyssey</h2>
+            <form id="registerForm" onsubmit="return validateRegisterForm(event)">
+                <div class="form-group">
+                    <label for="registerName">Full Name *</label>
+                    <input type="text" id="registerName" name="name" placeholder="Enter your name">
+                    <div class="error-message" id="registerNameError">Name is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email *</label>
+                    <input type="email" id="registerEmail" name="email" placeholder="Enter your email">
+                    <div class="error-message" id="registerEmailError">Please enter a valid email</div>
+                </div>
+                <div class="form-group">
+                    <label for="registerPhone">Phone Number *</label>
+                    <input type="tel" id="registerPhone" name="phone" placeholder="Enter your phone number">
+                    <div class="error-message" id="registerPhoneError">Phone number is required</div>
+                </div>
+                <div class="form-group">
+                    <label for="registerExperience">Riding Experience *</label>
+                    <select id="registerExperience" name="experience">
+                        <option value="">Select your experience</option>
+                        <option value="beginner">Beginner (0-2 years)</option>
+                        <option value="intermediate">Intermediate (3-5 years)</option>
+                        <option value="advanced">Advanced (5+ years)</option>
+                    </select>
+                    <div class="error-message" id="registerExperienceError">Please select your experience level</div>
+                </div>
+                <button type="submit" class="btn">Register Now</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -460,7 +935,7 @@
                 <ul>
                     <li><a href="budget.html">Service Centres</a></li>
                     <li><a href="budget.html">Owner's Manual</a></li>
-                    <li><a href="budget.html">Contact Us</a></li>
+                    <li><a onclick="openModal('testRideModal')">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -476,6 +951,335 @@
             &copy; 2024 Royal Enfield. All Rights Reserved.
         </div>
     </footer>
+
+    <script>
+        // ============================================
+        // IMAGE GALLERY - ROYAL ENFIELD BIKES ONLY
+        // ============================================
+        const images = [
+            { src: 'thunderbird.jpg.jpeg', name: 'Thunderbird 350' },
+            { src: 'meteor650.jpg', name: 'Super Meteor 650' },
+            { src: 'classic350.jpg', name: 'Classic 350' },
+            { src: 'himalayan450.jpg', name: 'Himalayan 450' },
+            { src: 'gt650.jpg', name: 'Continental GT 650' },
+            { src: 'interceptor650.jpg', name: 'Interceptor 650' }
+        ];
+        let currentImageIndex = 0;
+
+        function updateGallery() {
+            document.getElementById('galleryImage').src = images[currentImageIndex].src;
+            document.getElementById('galleryBikeName').textContent = images[currentImageIndex].name;
+            updateIndicators();
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateGallery();
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateGallery();
+        }
+
+        function createIndicators() {
+            const indicatorsContainer = document.getElementById('indicators');
+            images.forEach((_, index) => {
+                const indicator = document.createElement('span');
+                indicator.className = 'indicator';
+                indicator.onclick = () => {
+                    currentImageIndex = index;
+                    updateGallery();
+                };
+                indicatorsContainer.appendChild(indicator);
+            });
+            updateIndicators();
+        }
+
+        function updateIndicators() {
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentImageIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // BUTTON ALERTS
+        // ============================================
+        function showNewsAlert(eventName) {
+            alert(`Thank you for your interest in ${eventName}! More details coming soon.`);
+        }
+
+        // ============================================
+        // MODAL FUNCTIONS
+        // ============================================
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // ============================================
+        // FORM VALIDATION - LOGIN
+        // ============================================
+        function validateLoginForm(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            const email = document.getElementById('loginEmail').value.trim();
+            const emailError = document.getElementById('loginEmailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email === '' || !emailRegex.test(email)) {
+                emailError.classList.add('show');
+                isValid = false;
+            } else {
+                emailError.classList.remove('show');
+            }
+
+            const password = document.getElementById('loginPassword').value.trim();
+            const passwordError = document.getElementById('loginPasswordError');
+            
+            if (password === '') {
+                passwordError.classList.add('show');
+                isValid = false;
+            } else {
+                passwordError.classList.remove('show');
+            }
+
+            if (isValid) {
+                const username = email.split('@')[0];
+                localStorage.setItem('username', username);
+                alert(`Welcome back, ${username}!`);
+                document.getElementById('loginForm').reset();
+                closeModal('loginModal');
+            }
+
+            return false;
+        }
+
+        // ============================================
+        // FORM VALIDATION - SEARCH
+        // ============================================
+        function validateSearchForm(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            const query = document.getElementById('searchQuery').value.trim();
+            const queryError = document.getElementById('searchQueryError');
+            
+            if (query === '') {
+                queryError.classList.add('show');
+                isValid = false;
+            } else {
+                queryError.classList.remove('show');
+            }
+
+            if (isValid) {
+                const category = document.getElementById('searchCategory').value;
+                alert(`Searching for: "${query}"${category ? ` in ${category} category` : ''}`);
+                document.getElementById('searchForm').reset();
+                closeModal('searchModal');
+            }
+
+            return false;
+        }
+
+        // ============================================
+        // FORM VALIDATION - TEST RIDE
+        // ============================================
+        function validateTestRideForm(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            const name = document.getElementById('rideName').value.trim();
+            const nameError = document.getElementById('rideNameError');
+            if (name === '') {
+                nameError.classList.add('show');
+                isValid = false;
+            } else {
+                nameError.classList.remove('show');
+            }
+
+            const email = document.getElementById('rideEmail').value.trim();
+            const emailError = document.getElementById('rideEmailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                emailError.classList.add('show');
+                isValid = false;
+            } else {
+                emailError.classList.remove('show');
+            }
+
+            const phone = document.getElementById('ridePhone').value.trim();
+            const phoneError = document.getElementById('ridePhoneError');
+            if (phone === '') {
+                phoneError.classList.add('show');
+                isValid = false;
+            } else {
+                phoneError.classList.remove('show');
+            }
+
+            const bike = document.getElementById('rideBike').value;
+            const bikeError = document.getElementById('rideBikeError');
+            if (bike === '') {
+                bikeError.classList.add('show');
+                isValid = false;
+            } else {
+                bikeError.classList.remove('show');
+            }
+
+            if (isValid) {
+                const testRideData = {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    bike: bike,
+                    timestamp: new Date().toISOString()
+                };
+                
+                let testRides = JSON.parse(localStorage.getItem('testRides')) || [];
+                testRides.push(testRideData);
+                localStorage.setItem('testRides', JSON.stringify(testRides));
+
+                alert(`Thank you ${name}! Your test ride for ${document.querySelector(`#rideBike option[value="${bike}"]`).text} has been booked. We'll contact you soon.`);
+                document.getElementById('testRideForm').reset();
+                closeModal('testRideModal');
+            }
+
+            return false;
+        }
+
+        // ============================================
+        // FORM VALIDATION - REGISTER
+        // ============================================
+        function validateRegisterForm(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            const name = document.getElementById('registerName').value.trim();
+            const nameError = document.getElementById('registerNameError');
+            if (name === '') {
+                nameError.classList.add('show');
+                isValid = false;
+            } else {
+                nameError.classList.remove('show');
+            }
+
+            const email = document.getElementById('registerEmail').value.trim();
+            const emailError = document.getElementById('registerEmailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === '' || !emailRegex.test(email)) {
+                emailError.classList.add('show');
+                isValid = false;
+            } else {
+                emailError.classList.remove('show');
+            }
+
+            const phone = document.getElementById('registerPhone').value.trim();
+            const phoneError = document.getElementById('registerPhoneError');
+            if (phone === '') {
+                phoneError.classList.add('show');
+                isValid = false;
+            } else {
+                phoneError.classList.remove('show');
+            }
+
+            const experience = document.getElementById('registerExperience').value;
+            const experienceError = document.getElementById('registerExperienceError');
+            if (experience === '') {
+                experienceError.classList.add('show');
+                isValid = false;
+            } else {
+                experienceError.classList.remove('show');
+            }
+
+            if (isValid) {
+                const registrationData = {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    experience: experience,
+                    event: 'Himalayan Odyssey',
+                    timestamp: new Date().toISOString()
+                };
+                
+                let registrations = JSON.parse(localStorage.getItem('registrations')) || [];
+                registrations.push(registrationData);
+                localStorage.setItem('registrations', JSON.stringify(registrations));
+
+                alert(`Congratulations ${name}! You're registered for Himalayan Odyssey. Check your email for details.`);
+                document.getElementById('registerForm').reset();
+                closeModal('registerModal');
+            }
+
+            return false;
+        }
+
+        // ============================================
+        // LOCAL STORAGE - THEME TOGGLE
+        // ============================================
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-theme');
+            
+            const theme = body.classList.contains('light-theme') ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+        }
+
+        // ============================================
+        // LOCAL STORAGE - VISIT COUNTER
+        // ============================================
+        function updateVisitCount() {
+            let visitCount = parseInt(localStorage.getItem('visitCount')) || 0;
+            visitCount++;
+            localStorage.setItem('visitCount', visitCount);
+            document.getElementById('visitCount').textContent = visitCount;
+        }
+
+        // ============================================
+        // INITIALIZE ON PAGE LOAD
+        // ============================================
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+
+            updateVisitCount();
+            createIndicators();
+
+            const username = localStorage.getItem('username');
+            if (username) {
+                console.log(`Welcome back, ${username}!`);
+            }
+        };
+
+        // Keyboard navigation for gallery
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                previousImage();
+            } else if (event.key === 'ArrowRight') {
+                nextImage();
+            }
+        });
+    </script>
 
 </body>
 </html>
